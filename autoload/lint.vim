@@ -9,7 +9,7 @@ function! s:RunLinter(prg, format)
 
     let &makeprg = a:prg
     let &errorformat = a:format
-    let &shellpipe = '>'
+    let &shellpipe = '&>'
     let &t_ti = ''
     let &t_te = ''
 
