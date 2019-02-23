@@ -1,1 +1,4 @@
-noremap <buffer> <F7> :call lint#Lint()<CR>
+command Lint call lint#Lint()
+command LintReset call lint#Reset()
+
+noremap <buffer> <F7> :Lint<CR>
