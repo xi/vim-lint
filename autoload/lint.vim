@@ -60,3 +60,8 @@ function! lint#Lint()
         echon 'Lint OK'
     endif
 endfunction
+
+function! lint#Reset()
+    cclose
+    call s:PlaceMarkers([])
+endfunction
