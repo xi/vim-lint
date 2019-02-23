@@ -53,10 +53,11 @@ function! lint#Lint()
     let l:results = s:RunLinter(g:lint_prg, g:lint_format)
     call filter(l:results, 'v:val.lnum')
     call s:PlaceMarkers(l:results)
-    cwindow
     if l:results != []
+        copen
         echon 'Lint found '.len(l:results).' issues'
     else
+        cclose
         echon 'Lint OK'
     endif
 endfunction
