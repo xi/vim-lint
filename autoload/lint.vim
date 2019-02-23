@@ -42,25 +42,9 @@ function! s:PlaceMarkers(results)
     endfor
 endfunction
 
-function s:CheckOptions()
-    if !exists('g:lint_prg')
-        echoerr 'No linter configured (g:lint_prg)'
-        return 0
-    elseif !exists('g:lint_format')
-        echoerr 'No format configured (g:lint_format)'
-        return 0
-    else
-        let l:executable = split(g:lint_prg)[0]
-        if !executable(l:executable)
-            echoerr 'Linter '.l:executable.' cannot be executed'
-            return 0
-        endif
-    endif
-    return 1
-endfunction
-
 function! lint#Lint()
-    if !s:CheckOptions()
+    if !exists('g:lint_prg') || !exists('g:lint_format')
+        echon 'No linter configured'
         return
     endif
     if &readonly == 0
