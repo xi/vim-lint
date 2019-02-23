@@ -1,22 +1,22 @@
 let s:signids = []
 
 function! s:RunLinter(prg, format)
-    let l:old_grepprg = &grepprg
-    let l:old_grepformat = &grepformat
+    let l:old_makeprg = &makeprg
+    let l:old_errorformat = &errorformat
     let l:old_shellpipe = &shellpipe
     let l:old_t_ti = &t_ti
     let l:old_t_te = &t_te
 
-    let &grepprg = a:prg
-    let &grepformat = a:format
+    let &makeprg = a:prg
+    let &errorformat = a:format
     let &shellpipe = '>'
     let &t_ti = ''
     let &t_te = ''
 
-    silent! grep! '%'
+    silent! make! '%'
 
-    let &grepprg = l:old_grepprg
-    let &grepformat = l:old_grepformat
+    let &makeprg = l:old_makeprg
+    let &errorformat = l:old_errorformat
     let &shellpipe = l:old_shellpipe
     let &t_ti = l:old_t_ti
     let &t_te = l:old_t_te
