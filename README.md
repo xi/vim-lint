@@ -4,9 +4,9 @@
 linter.
 
 It is much simpler than [syntastic][1]. In fact, the implementation is
-basically a simplified version of [vim-flake8][2]. However, much like
-syntastic, you can configure `vim-lint` to use many different linters (but only
-one per file type).
+basically a simplified version of [vim-flake8][2]. It basically has no options.
+However, much like syntastic, you can configure `vim-lint` to use many
+different linters (but only one per file type).
 
 [1]: https://github.com/vim-syntastic/syntastic/
 [2]: https://github.com/nvie/vim-flake8/
