@@ -17,6 +17,10 @@ function! s:RunCompiler()
 endfunction
 
 function! lint#Lint()
+    if &makeprg == 'true'
+        echon 'No linter configured'
+        return
+    endif
     if &readonly == 0
         update
     endif
