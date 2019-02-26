@@ -12,8 +12,6 @@ function! s:RunCompiler()
     let &shellpipe = l:old_shellpipe
     let &t_ti = l:old_t_ti
     let &t_te = l:old_t_te
-
-    return getqflist()
 endfunction
 
 function! lint#Lint()
@@ -24,13 +22,5 @@ function! lint#Lint()
     if &readonly == 0
         update
     endif
-    let l:results = s:RunCompiler()
-    call filter(l:results, 'v:val.lnum')
-    if l:results != []
-        copen
-        echon 'Lint found '.len(l:results).' issues'
-    else
-        cclose
-        echon 'Lint OK'
-    endif
+    call s:RunCompiler()
 endfunction
