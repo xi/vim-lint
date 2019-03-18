@@ -21,8 +21,8 @@ first:
 ```viml
 " ftplugin/python_lint.vim
 if executable('flake8')
-    let g:lint_prg = 'flake8 --ignore=W191,W503'
-    let g:lint_format = '%f:%l:%c: %m'
+    let b:lint_prg = 'flake8 --ignore=W191,W503'
+    let b:lint_format = '%f:%l:%c: %m'
 endif
 ```
 

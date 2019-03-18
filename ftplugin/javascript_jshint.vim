@@ -1,4 +1,4 @@
 if executable('jshint')
-    let g:lint_prg = 'jshint'
-    let g:lint_format = '%f: line %l\, col %c\, %m'
+    let b:lint_prg = 'jshint'
+    let b:lint_format = '%f: line %l\, col %c\, %m'
 endif

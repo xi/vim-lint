@@ -23,14 +23,14 @@ function! s:RunLinter(prg, format)
 endfunction
 
 function! lint#Lint()
-    if !exists('g:lint_prg') || !exists('g:lint_format')
+    if !exists('b:lint_prg') || !exists('b:lint_format')
         echon 'No linter configured'
         return
     endif
     if &readonly == 0
         update
     endif
-    let l:results = s:RunLinter(g:lint_prg, g:lint_format)
+    let l:results = s:RunLinter(b:lint_prg, b:lint_format)
     call filter(l:results, 'v:val.lnum')
     if l:results != []
         copen

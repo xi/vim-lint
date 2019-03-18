@@ -1,4 +1,4 @@
 if executable('flake8')
-    let g:lint_prg = 'flake8'
-    let g:lint_format = '%f:%l:%c: %m,%f:%l: %m'
+    let b:lint_prg = 'flake8'
+    let b:lint_format = '%f:%l:%c: %m,%f:%l: %m'
 endif
