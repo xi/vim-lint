@@ -11,7 +11,7 @@ function! s:RunLinter(prg, format)
     let &t_ti = ''
     let &t_te = ''
 
-    silent! make! '%'
+    silent! lmake! '%'
 
     let &makeprg = l:old_makeprg
     let &errorformat = l:old_errorformat
@@ -19,11 +19,11 @@ function! s:RunLinter(prg, format)
     let &t_ti = l:old_t_ti
     let &t_te = l:old_t_te
 
-    return getqflist()
+    return getloclist(winnr())
 endfunction
 
 function! lint#Lint()
-    cclose
+    lclose
     if !exists('b:lint_prg') || !exists('b:lint_format')
         echon 'No linter configured'
         return
@@ -34,10 +34,10 @@ function! lint#Lint()
     let l:results = s:RunLinter(b:lint_prg, b:lint_format)
     call filter(l:results, 'v:val.lnum')
     if l:results != []
-        copen
+        lopen
         echon 'Lint found '.len(l:results).' issues'
     else
-        cclose
+        lclose
         echon 'Lint OK'
     endif
 endfunction
