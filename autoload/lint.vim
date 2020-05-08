@@ -23,6 +23,7 @@ function! s:RunLinter(prg, format)
 endfunction
 
 function! lint#Lint()
+    cclose
     if !exists('b:lint_prg') || !exists('b:lint_format')
         echon 'No linter configured'
         return
